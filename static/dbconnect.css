@@ -1,0 +1,118 @@
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:'Segoe UI',sans-serif;
+}
+
+/* FULL PAGE BG */
+body{
+  height:100vh;
+  width:100vw;
+  background:url("/static/assets/after connect bg.png") center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* GLASS OVERLAY CARD */
+.db-wrapper{
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:60px;
+}
+
+.db-card{
+  width:100%;
+  height:100%;
+  max-width:1200px;
+  max-height:650px;
+
+  display:flex;
+  border-radius:36px;
+
+  backdrop-filter:blur(22px);
+  background:rgba(40,45,80,.75);
+
+  box-shadow:0 30px 80px rgba(0,0,0,.7);
+}
+
+/* LEFT FORM SIDE */
+.left-panel{
+  flex:1;
+  padding:80px 70px;
+  color:white;
+}
+
+/* TABS */
+.db-tabs{
+  display:flex;
+  gap:18px;
+  margin-bottom:50px;
+}
+
+.db-tabs button{
+  padding:14px 36px;
+  border:none;
+  border-radius:24px;
+  background:#6b6f8f;
+  color:white;
+  cursor:pointer;
+}
+
+.db-tabs .active{
+  background:#3bb4ff;
+}
+
+/* INPUTS */
+.left-panel input{
+  width:100%;
+  padding:18px 22px;
+  border:none;
+  border-radius:22px;
+  margin-bottom:22px;
+  font-size:16px;
+  outline:none;
+}
+
+/* CONNECT BUTTON */
+.connect-btn{
+  margin-top:26px;
+  width:100%;
+  padding:18px;
+  border:none;
+  border-radius:26px;
+  background:#2f6bff;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 0 30px rgba(47,107,255,.8);
+}
+
+/* RIGHT IMAGE SIDE */
+.right-panel{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.right-panel img{
+  width:85%;
+  max-width:520px;
+}
+
+.right-panel img{
+  width:70%;
+  max-width:420px;
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 10px 30px rgba(0,0,0,.6));
+  transition:transform .3s ease, opacity .3s ease;
+}
+.left-panel input{
+  padding-left:22px;
+}

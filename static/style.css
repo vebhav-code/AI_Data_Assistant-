@@ -1,0 +1,217 @@
+/* ================= GLOBAL ================= */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  height:100vh;
+  color:white;
+  overflow:hidden;
+  background:
+    linear-gradient(rgba(10,20,40,.55), rgba(10,20,40,.55)),
+    url("/static/assets/index2bg.png") center/cover no-repeat;
+}
+
+/* ================= LAYOUT ================= */
+.app{
+  height:100vh;
+  width:100vw;
+  display:grid;
+  grid-template-columns: 1fr 1.5fr;   /* 40% | 60% */
+  gap:26px;
+  padding:28px;
+}
+
+/* ================= GLASS PANELS ================= */
+.chat-panel,
+.result-panel{
+  backdrop-filter: blur(22px);
+  background: rgba(255,255,255,0.12);
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,0.25);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.45),
+    inset 0 0 1px rgba(255,255,255,.4);
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+}
+
+/* ================= CHAT ================= */
+#chatPanel{
+  flex:1;
+  overflow-y:auto;
+  padding-right:6px;
+}
+
+.user-msg{
+  background:linear-gradient(135deg,#f4f4f4,#f0f3f2);
+  padding:14px 16px;
+  border-radius:22px;
+  margin:14px 0;
+  max-width:75%;
+  box-shadow:0 0 14px rgba(0,255,255,.45);
+
+  /* 🔥 HARD OVERFLOW FIX */
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+
+  animation:pop .2s ease;
+  color: #000;
+}
+
+/* ================= RESULT ================= */
+.result-panel h3{
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+#resultContent{
+  opacity:.95;
+  line-height:1.6;
+}
+
+/* ================= ACTION BUTTONS ================= */
+.action-buttons{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:18px;
+}
+
+.action-buttons button{
+  padding:14px;
+  border-radius:18px;
+  background:rgba(255,255,255,.18);
+  backdrop-filter:blur(10px);
+  color:white;
+  border:1px solid rgba(255,255,255,.25);
+  cursor:pointer;
+  box-shadow:0 8px 25px rgba(0,0,0,.35);
+}
+
+.action-buttons button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 22px rgba(0,180,255,.9);
+}
+
+/* ================= EXACT GLASS INPUT (REFERENCE MATCH) ================= */
+
+.chat-input-inside{
+  margin-top:16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  padding:8px 14px;
+  border-radius:40px;
+
+  background:rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+
+  border:1.5px solid rgba(240, 235, 235, 0.75);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.15),
+    inset 0 0 8px rgba(255,255,255,.08);
+}
+
+.chat-input-inside input{
+  flex:1;
+  background:transparent;
+  border:none;
+  outline:none;
+  color:rgb(244, 239, 239);
+  font-size:15px;
+  padding:6px;
+}
+
+.chat-input-inside input::placeholder{
+  color:rgba(244, 242, 242, 0.65);
+}
+
+/* send arrow */
+.send-btn-outline{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  border:1.5px solid rgba(255,255,255,0.9);
+  background:transparent;
+  color:rgb(244, 237, 237);
+  font-size:17px;
+  cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.2s ease;
+}
+
+.send-btn-outline:hover{
+  background:rgba(255,255,255,.12);
+  transform:scale(1.05);
+}
+
+/* ================= USER MENU ================= */
+.user-menu{
+  position:absolute;
+  top:16px;
+  right:22px;
+  z-index:20;
+}
+
+.avatar{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#2563eb;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 0 18px rgba(37,99,235,.8);
+}
+
+/* ================= POPUP ================= */
+.menu-popup{
+  position:absolute;
+  top:52px;
+  right:0;
+  width:170px;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(14px);
+  border-radius:16px;
+  padding:8px;
+  display:none;
+  box-shadow:0 15px 40px rgba(0,0,0,.45);
+}
+
+.menu-popup div{
+  padding:12px;
+  border-radius:12px;
+  color:#111;
+  cursor:pointer;
+  display:flex;
+  gap:10px;
+}
+
+.menu-popup div:hover{
+  background:rgba(0,120,255,.12);
+}
+
+/* ================= SCROLL ================= */
+.chat-panel::-webkit-scrollbar{
+  width:6px;
+}
+
+.chat-panel::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,.3);
+  border-radius:10px;
+}

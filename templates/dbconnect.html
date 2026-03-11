@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Connect Database</title>
+  <link rel="stylesheet" href="/static/dbconnect.css">
+</head>
+
+<body>
+
+  <div class="db-wrapper">
+
+    <div class="db-card">
+
+      <!-- LEFT SIDE -->
+      <div class="left-panel">
+
+        <div class="db-tabs">
+          <button class="active" onclick="selectDB('snowflake', this)">MySql</button>
+          <button onclick="selectDB('postgres', this)">PostgreSQL</button>
+          <button onclick="selectDB('mongodb', this)">MongoDB</button>
+        </div>
+
+        <input type="text" placeholder="Root Username">
+        <input type="password" placeholder="Password">
+        <input type="text" placeholder="Database Name">
+
+        <button class="connect-btn" onclick="goToDashboard()">
+          Connect Database
+        </button>
+
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="right-panel">
+        <img id="dbImage" src="/static/assets/newsql.png" alt="Database illustration">
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function selectDB(type, el) {
+
+      // remove active from all
+      document.querySelectorAll(".db-tabs button")
+        .forEach(btn => btn.classList.remove("active"));
+
+      // add active to clicked
+      el.classList.add("active");
+
+      const img = document.getElementById("dbImage");
+
+      if (type === "snowflake") {
+        img.src = "/static/assets/newsql.png";
+      }
+      else if (type === "postgres") {
+        img.src = "/static/assets/psqlnew.png";
+      }
+      else {
+        img.src = "/static/assets/newmango.png";
+      }
+    }
+  </script>
+
+  <script>
+    function goToDashboard() {
+      window.location.href = "/app";
+    }
+  </script>
+
+</body>
+
+</html>
